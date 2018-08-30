@@ -4,13 +4,11 @@
 This is a demo how to run [Yii2 framework][yii-link], [Laravel][laravel-link] and [Symfony][symfony-link] as individual services and backoffices and plug [Vuejs][vuejs-link], [Reactjs][reactjs-link] and [Angular][angular-link] as front views.
 Everthing runed in [Docker][docker-link] containers.
 
-![yii][yii-logo] 
-![laravel][laravel-logo]
-![symfony][symfony-logo]
-![vuejs][vuejs-logo]
-![reactjs][reactjs-logo]
-![angular][angular-logo]
-![docker][docker-logo]
+
+
+| sdfsd | sdfsff | sadfasdf | sfgsdf | dfghdfgh|sfgsdf | dfghdfgh|
+| --- | --- | --- | --- | --- | --- | --- |
+| ![yii][yii-logo] | ![laravel][laravel-logo] | ![symfony][symfony-logo] | ![vuejs][vuejs-logo] | ![reactjs][reactjs-logo] | ![angular][angular-logo] | ![docker][docker-logo] |
 
 
 ## Installation
@@ -66,6 +64,7 @@ docker-compose run --rm angular bash
 [reactjs-link]: https://reactjs.org/
 [angular-link]: https://angular.io/
 [docker-link]: https://www.docker.com/
+[mysql-link]: https://www.mysql.com/
 [yii-logo]: https://www.yiiframework.com/image/yii_logo_light.svg
 [laravel-logo]: https://github.com/laravel/art/blob/master/Laravel-l-slant.svg
 [symfony-logo]: https://symfony.com/logos/symfony_black_02.svg
@@ -73,3 +72,4 @@ docker-compose run --rm angular bash
 [reactjs-logo]: https://commons.wikimedia.org/wiki/File:React-icon.svg
 [angular-logo]: https://angular.io/assets/images/logos/angular/angular.svg
 [docker-logo]: https://www.docker.com/sites/default/files/horizontal.png
+[mysql-logo]: https://www.mysql.com/common/logos/logo-mysql-170x115.png
