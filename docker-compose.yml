@@ -32,6 +32,6 @@ services:
     ports:
       - '8083:8080'
     volumes:
-      - ./front/vuejs/src:/home/node/app:delegated
+      - ./front/vuejs/app:/home/node/app:delegated
     working_dir: /home/node/app
     command: "npm run serve"
