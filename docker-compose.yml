@@ -10,7 +10,7 @@ services:
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
       - ./back/yii2:/app:delegated
     ports:
-      - '8000:80'
+      - '8080:80'
     links:
       - db
     # environment:
@@ -32,6 +32,6 @@ services:
     ports:
       - '8083:8080'
     volumes:
-      - ./front/vuejs/app:/home/node/app:delegated
+      - ./front/vuejs:/home/node/app:delegated
     working_dir: /home/node/app
     command: "npm run serve"
