@@ -65,8 +65,8 @@ docker-compose run --rm angular bash
 [angular-link]: https://angular.io/
 [docker-link]: https://www.docker.com/
 [mysql-link]: https://www.mysql.com/
-[yii-logo]: (https://www.yiiframework.com/image/yii_logo_light.svg | width=100)
-[laravel-logo]: (https://github.com/laravel/art/blob/master/Laravel-l-slant.svg  | width=100)
+[yii-logo]: https://www.yiiframework.com/image/yii_logo_light.svg | width=100
+[laravel-logo]: https://github.com/laravel/art/blob/master/Laravel-l-slant.svg | width=100
 [symfony-logo]: https://symfony.com/logos/symfony_black_02.svg
 [vuejs-logo]: https://github.com/vuejs/art/blob/master/logo.svg
 [reactjs-logo]: https://commons.wikimedia.org/wiki/File:React-icon.svg
