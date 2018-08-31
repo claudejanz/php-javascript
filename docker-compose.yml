@@ -1,11 +1,20 @@
 version: '3.1'
 
 services:
-  # ${LARAVEL_APACHE_PHP_SERVER}:
-  #   build:
-  #       context: ./back/laravel
+  laravel:
+    image: php:7.2-apache
+    volumes:
+      - ./back/laravel:/var/www/html/:delegated
+      # - ./docker/laravel/httpd.conf:/usr/local/apache2/conf/httpd.conf
+    ports:
+      - '8081:80'
+    links:
+      - db
+    environment:
+      APACHE_DOCUMENT_ROOT: /var/www/html/public
+      
   yii:
-    image: yiisoftware/yii2-php:7.1-apache
+    image: yiisoftware/yii2-php:7.2-apache
     volumes:
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
       - ./back/yii2:/app:delegated
@@ -13,8 +22,7 @@ services:
       - '8080:80'
     links:
       - db
-    # environment:
-    #   PHP_ENABLE_XDEBUG: 1
+    
     
   db:
     image: mysql
