@@ -64,7 +64,7 @@ if (YII_ENV_DEV) {
         'allowedIPs' => ['172.*'],
     ];
     $config['bootstrap'][] = 'gii';
-    // die($_SERVER['REMOTE_ADDR']);
+    die($_SERVER['REMOTE_ADDR']);
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.

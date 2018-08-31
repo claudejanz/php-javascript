@@ -1,10 +1,10 @@
-version: '3'
+version: '3.1'
 
 services:
   # ${LARAVEL_APACHE_PHP_SERVER}:
   #   build:
   #       context: ./back/laravel
-  yii2:
+  yii:
     image: yiisoftware/yii2-php:7.1-apache
     volumes:
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
@@ -22,11 +22,11 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE : yii2
-      MYSQL_USER: claudejanz
-      MYSQL_PASSWORD: secret
     ports:
       - '3306:3306'
+    volumes:
+      - ./docker/mysql:/docker-entrypoint-initdb.d
+
   vuejs:
     image: node:10
     ports:
