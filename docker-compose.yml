@@ -5,13 +5,12 @@ services:
     image: php:7.2-apache
     volumes:
       - ./back/laravel:/var/www/html/:delegated
-      # - ./docker/laravel/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      # - ./docker/laravel/my.conf:/etc/apache2/sites-enabled/my.conf
     ports:
       - '8081:80'
     links:
       - db
-    environment:
-      APACHE_DOCUMENT_ROOT: /var/www/html/public
+    # command: sed -i -e 's/\/var\/www\/html/kiki/g' /etc/apache2/sites-enabled/*.conf; 
       
   yii:
     image: yiisoftware/yii2-php:7.2-apache
