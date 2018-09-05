@@ -1,4 +1,4 @@
-# Full stack demo
+# Full stack demo (do not use still in dev)
 [![Latest Stable Version](https://poser.pugx.org/claudejanz/php-javascript/v/stable.svg)](https://packagist.org/packages/claudejanz/php-javascript) [![Total Downloads](https://poser.pugx.org/claudejanz/php-javascript/downloads.svg)](https://packagist.org/packages/claudejanz/php-javascript) [![Latest Unstable Version](https://poser.pugx.org/claudejanz/php-javascript/v/unstable.svg)](https://packagist.org/packages/claudejanz/php-javascript) [![License](https://poser.pugx.org/claudejanz/php-javascript/license.svg)](https://packagist.org/packages/claudejanz/php-javascript)
 
 This is a demo how to run [Yii2 framework][yii-link], [Laravel][laravel-link] and [Symfony][symfony-link] as individual services and backoffices running with [Mysql][mysql-link] database and plug [Vuejs][vuejs-link], [Reactjs][reactjs-link] and [Angular][angular-link] as front views.
