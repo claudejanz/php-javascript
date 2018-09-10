@@ -1,16 +1,20 @@
 version: '3.1'
 
 services:
-  laravel:
-    image: php:7.2-apache
-    volumes:
-      - ./back/laravel:/var/www/html/:delegated
-      # - ./docker/laravel/my.conf:/etc/apache2/sites-enabled/my.conf
-    ports:
-      - '8081:80'
-    links:
-      - db
-    # command: sed -i -e 's/\/var\/www\/html/kiki/g' /etc/apache2/sites-enabled/*.conf; 
+  # laravel:
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: 'docker/laravel'
+  #     args:
+  #       - PHP_BASE_IMAGE_VERSION=${PHP_BASE_IMAGE_VERSION}
+  #   volumes:
+  #     - ./back/laravel:/app/:delegated
+  #     # - ./docker/laravel/my.conf:/etc/apache2/sites-enabled/my.conf
+  #   ports:
+  #     - '8081:80'
+  #   links:
+  #     - db
+  #   # command: sed -i -e 's/\/var\/www\/html/kiki/g' /etc/apache2/sites-enabled/*.conf; 
       
   yii:
     image: yiisoftware/yii2-php:7.2-apache
