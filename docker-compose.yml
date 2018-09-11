@@ -1,14 +1,13 @@
-version: '3.1'
+version: '3.3'
 
 services:
   laravel:
     build:
-      dockerfile: Dockerfile
       context: 'docker/laravel'
       args:
         - PHP_BASE_IMAGE_VERSION=${PHP_BASE_IMAGE_VERSION}
     volumes:
-      - ./back/laravel:/app/:delegated
+      - ./back/laravel:/app/
       # - ./docker/laravel/my.conf:/etc/apache2/sites-enabled/my.conf
     ports:
       - '8081:80'
@@ -17,12 +16,15 @@ services:
     # command: sed -i -e 's/\/var\/www\/html/kiki/g' /etc/apache2/sites-enabled/*.conf; 
       
   yii:
-    image: yiisoftware/yii2-php:7.2-apache
+    build:
+      context: 'docker/yii'
+      args:
+        - PHP_BASE_IMAGE_VERSION=${PHP_BASE_IMAGE_VERSION}
     volumes:
-      - ~/.composer-docker/cache:/root/.composer/cache:delegated
-      - ./back/yii2:/app:delegated
+      - ~/.composer-docker/cache:/root/.composer/cache
+      - ./back/yii2:/app
     ports:
-      - '8083:80'
+      - '8080:80'
     links:
       - db
     
@@ -37,13 +39,39 @@ services:
       - '3306:3306'
     volumes:
       - ./docker/mysql:/docker-entrypoint-initdb.d
+      # uncomment following to see logs of the container
+      - ./logs/mysql:/var/lib/mysql
 
   vuejs:
-    image: node:10
+    build:
+      dockerfile: Dockerfile
+      context: 'docker/vuejs'
     ports:
-      - '8080:8080'
+      - '8083:8080'
     volumes:
       - ./front/vuejs:/home/app
     working_dir: /home/app
-    command: "yarn serve"
+    
+
+  # symfony_php:
+  #   build: docker/symfony/php
+  #   expose:
+  #     - '9000'
+  #   depends_on:
+  #     - db
+  #   volumes:
+  #     - ./back/symfony:/var/www/html/symfony:cached
+  #     - ./logs/symfony:/var/log
+
+  # symfony_web:
+  #   build: docker/symfony/nginx
+  #   restart: always
+  #   ports:
+  #       - '8082:80'
+  #   depends_on:
+  #       - symfony_php
+  #       - db
+  #   volumes:
+  #       - ./back/symfony:/var/www/html/symfony:cached
+  #       - ./logs/symfony:/var/log/nginx
     

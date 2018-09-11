@@ -1,0 +1,17 @@
+FROM node:carbon-slim
+
+ENV CHOKIDAR_USEPOLLING=true
+
+# vue-cli reqires 8.10.0+ 
+RUN apt-get -y update \
+  && apt-get install -y git
+
+RUN npm install -g @vue/cli
+
+WORKDIR /target/in/container
+
+EXPOSE 8080
+
+USER node
+
+CMD ["yarn", "serve"]
