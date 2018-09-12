@@ -39,8 +39,7 @@ services:
       - '3306:3306'
     volumes:
       - ./docker/mysql:/docker-entrypoint-initdb.d
-      # uncomment following to see logs of the container
-      - ./logs/mysql:/var/lib/mysql
+      - ./cache/mysql:/var/lib/mysql
 
   vuejs:
     build:
@@ -53,15 +52,18 @@ services:
     working_dir: /home/app
     
 
-  # symfony_php:
-  #   build: docker/symfony/php
-  #   expose:
-  #     - '9000'
-  #   depends_on:
-  #     - db
-  #   volumes:
-  #     - ./back/symfony:/var/www/html/symfony:cached
-  #     - ./logs/symfony:/var/log
+  symfony:
+    build:
+      context: 'docker/symfony'
+      args:
+        - PHP_BASE_IMAGE_VERSION=${PHP_BASE_IMAGE_VERSION}
+    volumes:
+      - ./back/symfony:/app/
+      # - ./docker/laravel/my.conf:/etc/apache2/sites-enabled/my.conf
+    ports:
+      - '8082:80'
+    links:
+      - db
 
   # symfony_web:
   #   build: docker/symfony/nginx
@@ -73,5 +75,5 @@ services:
   #       - db
   #   volumes:
   #       - ./back/symfony:/var/www/html/symfony:cached
-  #       - ./logs/symfony:/var/log/nginx
+  #       - ./cache/symfony:/var/log/nginx
     

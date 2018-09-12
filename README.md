@@ -7,16 +7,33 @@ Everthing runs in [Docker][docker-link] containers.
 
 
 
-## Installation
+# Installation
 - Clone repository
-- Install docker
----
-## Run applications
+- Install [Docker][docker-link]
+
+## Start containers
 ```bash
 docker-compose up -d
 ```
----
-## View result
+## Wait for mysql first startup
+Watch "cache/mysql" folder until laravel, yii, symfony databases are created.
+A folder for each data base should show up. This can take several minutes the first time.
+
+## Migrate databases
+### Yii
+```bash
+docker-compose exec yii yii migrate
+```
+### Laravel
+```bash
+docker-compose exec laravel php ../artisan migrate
+```
+### Laravel
+```bash
+docker-compose exec laravel php artisan migrate
+```
+
+# View result
 
 - yii2: http://localhost:8080
 - laravel: http://localhost:8081
