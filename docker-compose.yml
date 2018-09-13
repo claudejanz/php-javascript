@@ -3,21 +3,19 @@ version: '3.3'
 services:
   laravel:
     build:
-      context: 'docker/laravel'
+      context: '.docker/laravel'
       args:
         - PHP_BASE_IMAGE_VERSION=${PHP_BASE_IMAGE_VERSION}
     volumes:
       - ./back/laravel:/app/
-      # - ./docker/laravel/my.conf:/etc/apache2/sites-enabled/my.conf
     ports:
       - '8081:80'
     links:
       - db
-    # command: sed -i -e 's/\/var\/www\/html/kiki/g' /etc/apache2/sites-enabled/*.conf; 
       
   yii:
     build:
-      context: 'docker/yii'
+      context: '.docker/yii'
       args:
         - PHP_BASE_IMAGE_VERSION=${PHP_BASE_IMAGE_VERSION}
     volumes:
@@ -39,12 +37,12 @@ services:
       - '3306:3306'
     volumes:
       - ./docker/mysql:/docker-entrypoint-initdb.d
-      - ./cache/mysql:/var/lib/mysql
+      - ./.cache/mysql:/var/lib/mysql
 
   vuejs:
     build:
       dockerfile: Dockerfile
-      context: 'docker/vuejs'
+      context: '.docker/vuejs'
     ports:
       - '8083:8080'
     volumes:
@@ -54,26 +52,13 @@ services:
 
   symfony:
     build:
-      context: 'docker/symfony'
+      context: '.docker/symfony'
       args:
         - PHP_BASE_IMAGE_VERSION=${PHP_BASE_IMAGE_VERSION}
     volumes:
       - ./back/symfony:/app/
-      # - ./docker/laravel/my.conf:/etc/apache2/sites-enabled/my.conf
     ports:
       - '8082:80'
     links:
       - db
 
-  # symfony_web:
-  #   build: docker/symfony/nginx
-  #   restart: always
-  #   ports:
-  #       - '8082:80'
-  #   depends_on:
-  #       - symfony_php
-  #       - db
-  #   volumes:
-  #       - ./back/symfony:/var/www/html/symfony:cached
-  #       - ./cache/symfony:/var/log/nginx
-    

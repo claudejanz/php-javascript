@@ -15,6 +15,8 @@ class m180911_134834_cool extends Migration
         $this->createTable('cool',[
             'id' => $this->primaryKey(),
             'text' => $this->text(),
+            'summary' => $this->text(),
+            'date'=>$this->dateTime(),
         ]);
     }
 

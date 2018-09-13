@@ -12,7 +12,11 @@ class m180829_090358_init extends Migration
      */
     public function safeUp()
     {
-
+        $this->createTable('cools',[
+            'id'=>$this->primaryKey(),
+            'text'=>$this->text(),
+            'date'=>$this->dateTime()
+        ]);
     }
 
     /**
