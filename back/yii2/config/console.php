@@ -24,16 +24,31 @@ $config = [
                 ],
             ],
         ],
+        'doctrine'  => [
+            'class'    => 'yii\doctrine\components\DoctrineComponent',
+            'isDev'    => true,            //for development 
+            'driver'   => 'pdo_mysql',     //database driver
+            'user'     => 'root',          //database user
+            'password' => 'root',      //password
+            'host'     => 'db',     
+            'dbname'   => 'symfony',        //name database
+            'entityPath' => [              //paths with you entity
+                'app/models',
+            ]
+        ],
         'db' => $db,
     ],
     'params' => $params,
-    /*
+    
     'controllerMap' => [
         'fixture' => [ // Fixture generation command line.
             'class' => 'yii\faker\FixtureController',
         ],
+        'doctrine' => [
+            'class'     => 'yii\doctrine\console\DoctrineController',
+        ]
     ],
-    */
+    
 ];
 
 if (YII_ENV_DEV) {

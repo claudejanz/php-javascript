@@ -36,7 +36,7 @@ services:
     ports:
       - '3306:3306'
     volumes:
-      - ./docker/mysql:/docker-entrypoint-initdb.d
+      - ./.docker/mysql:/docker-entrypoint-initdb.d
       - ./.cache/mysql:/var/lib/mysql
 
   vuejs:

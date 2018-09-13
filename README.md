@@ -28,9 +28,9 @@ docker-compose exec yii yii migrate
 ```bash
 docker-compose exec laravel php ../artisan migrate
 ```
-### Laravel
+### Symfony
 ```bash
-docker-compose exec laravel php artisan migrate
+docker-compose exec symfony php artisan migrate
 ```
 
 # View result
