@@ -16,7 +16,7 @@ class m180911_134834_cool extends Migration
             'id' => $this->primaryKey(),
             'text' => $this->text(),
             'summary' => $this->text(),
-            'date'=>$this->dateTime(),
+            'date'=>$this->dateTi,
         ]);
     }
 

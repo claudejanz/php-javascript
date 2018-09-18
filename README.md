@@ -11,6 +11,28 @@ Everthing runs in [Docker][docker-link] containers.
 - Clone repository
 - Install [Docker][docker-link]
 
+For dependency install and update
+- Install [Composer][composer-link]
+- Install [Node][node-link]
+
+## Load dependencies
+
+Go to root directory
+
+```bash
+cd php-javascript
+```
+Install backend dependencies with composer
+```bash
+composer --working-dir=.\back\yii2 install
+composer --working-dir=.\back\symfony install
+composer --working-dir=.\back\laravel install
+```
+Install frontend dependencies with npm or yarn
+```bash
+npm --prefix ./front/vuejs install ./front/vuejs
+```
+
 ## Start containers
 ```bash
 docker-compose up -d
@@ -82,3 +104,5 @@ docker-compose run --rm db bash
 [angular-link]: https://angular.io/
 [docker-link]: https://www.docker.com/
 [mysql-link]: https://www.mysql.com/
+[composer-link]: https://getcomposer.org/download/
+[node-link]: https://nodejs.org
