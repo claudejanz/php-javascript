@@ -13,7 +13,7 @@ Everthing runs in [Docker][docker-link] containers.
 
 For dependency install and update
 - Install [Composer][composer-link]
-- Install [Node][node-link]
+- Install [Node][node-link] or [Yarn][yarn-link]
 
 ## Load dependencies
 
