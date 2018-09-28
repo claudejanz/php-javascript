@@ -6,8 +6,8 @@ services:
       context: '.docker/laravel'
       args:
         - PHP_BASE_IMAGE_VERSION=${PHP_BASE_IMAGE_VERSION}
-    # volumes:
-    #   - ./back/laravel:/app
+    volumes:
+      - ./back/laravel:/app
     ports:
       - '8081:80'
     links:
