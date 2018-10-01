@@ -57,12 +57,12 @@ docker-compose exec symfony php artisan migrate
 
 # View result
 
-- yii2: http://localhost:8080
-- laravel: http://localhost:8081
-- symfony: http://localhost:8082
-- vuejsjs: http://localhost:8083
-- reactjsjs: http://localhost:8084
-- angularjs: http://localhost:8085
+- yii2: http://localhost:65200
+- laravel: http://localhost:65201
+- symfony: http://localhost:65202
+- vuejsjs: http://localhost:65203
+- reactjsjs: http://localhost:65204
+- angularjs: http://localhost:65205
 
 ---
 ## Log into containers

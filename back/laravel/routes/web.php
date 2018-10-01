@@ -11,8 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('user/{id}', 'HelloWorldController@show');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

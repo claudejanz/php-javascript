@@ -9,7 +9,7 @@ services:
     volumes:
       - ./back/laravel:/app
     ports:
-      - '8081:80'
+      - '65201:80'
     links:
       - db
       
@@ -22,7 +22,7 @@ services:
       - ~/.composer-docker/cache:/root/.composer/cache
       - ./back/yii2:/app
     ports:
-      - '8080:80'
+      - '65200:80'
     links:
       - db
     
@@ -44,21 +44,21 @@ services:
       dockerfile: Dockerfile
       context: '.docker/vuejs'
     ports:
-      - '8083:8080'
+      - '65203:8080'
     volumes:
       - ./front/vuejs:/home/app
     working_dir: /home/app
     
 
-  # symfony:
-  #   build:
-  #     context: '.docker/symfony'
-  #     args:
-  #       - PHP_BASE_IMAGE_VERSION=${PHP_BASE_IMAGE_VERSION}
-  #   volumes:
-  #     - ./back/symfony:/app/
-  #   ports:
-  #     - '8082:80'
-  #   links:
-  #     - db
+  symfony:
+    build:
+      context: '.docker/symfony'
+      args:
+        - PHP_BASE_IMAGE_VERSION=${PHP_BASE_IMAGE_VERSION}
+    volumes:
+      - ./back/symfony:/app/
+    ports:
+      - '65202:80'
+    links:
+      - db
 
