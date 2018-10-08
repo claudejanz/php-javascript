@@ -38,7 +38,7 @@ npm --prefix ./front/vuejs install ./front/vuejs
 docker-compose up -d
 ```
 ## Wait for mysql first startup
-Watch "cache/mysql" folder until laravel, yii, symfony databases are created.
+Watch ".cache/mysql" folder until laravel, yii, symfony databases are created.
 A folder for each data base should show up. This can take several minutes the first time.
 
 ## Migrate databases
@@ -63,6 +63,7 @@ docker-compose exec symfony php artisan migrate
 - vuejsjs: http://localhost:8083
 - reactjsjs: http://localhost:8084
 - angularjs: http://localhost:8085
+- adminer: http://localhost:3307
 
 ---
 ## Log into containers
@@ -106,3 +107,4 @@ docker-compose run --rm db bash
 [mysql-link]: https://www.mysql.com/
 [composer-link]: https://getcomposer.org/download/
 [node-link]: https://nodejs.org
+[yarn-link]: https://yarnpkg.com

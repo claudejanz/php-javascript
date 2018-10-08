@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.1'
 
 services:
   laravel:
@@ -28,8 +28,8 @@ services:
     
     
   db:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+    image: mysql:latest
+    command: --innodb_use_native_aio=0 --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -38,6 +38,15 @@ services:
     volumes:
       - ./.docker/mysql:/docker-entrypoint-initdb.d
       - ./.cache/mysql:/var/lib/mysql
+ 
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 3307:8080
+    links:
+      - db
 
   vuejs:
     build:
@@ -50,15 +59,15 @@ services:
     working_dir: /home/app
     
 
-  # symfony:
-  #   build:
-  #     context: '.docker/symfony'
-  #     args:
-  #       - PHP_BASE_IMAGE_VERSION=${PHP_BASE_IMAGE_VERSION}
-  #   volumes:
-  #     - ./back/symfony:/app/
-  #   ports:
-  #     - '8082:80'
-  #   links:
-  #     - db
+  symfony:
+    build:
+      context: '.docker/symfony'
+      args:
+        - PHP_BASE_IMAGE_VERSION=${PHP_BASE_IMAGE_VERSION}
+    volumes:
+      - ./back/symfony:/app/
+    ports:
+      - '8082:80'
+    links:
+      - db
 
