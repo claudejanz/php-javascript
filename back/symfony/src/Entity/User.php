@@ -185,7 +185,7 @@ class User implements UserInterface, \Serializable
     /** @see \Serializable::unserialize() */
     public function unserialize($serialized)
     {
-        list (
+        list(
             $this->id,
             $this->email,
             $this->password,
@@ -194,7 +194,4 @@ class User implements UserInterface, \Serializable
             // $this->salt
         ) = unserialize($serialized, array('allowed_classes' => false));
     }
-
-    
-    
 }

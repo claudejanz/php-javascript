@@ -17,6 +17,4 @@ class DefaultController extends AbstractController
         $translated = $translator->trans('Symfony is great');
         return new Response("<html><body>$translated</body></html>");
     }
-
-   
 }

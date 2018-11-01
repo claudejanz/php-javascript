@@ -11,20 +11,22 @@ Everthing runs in [Docker][docker-link] containers.
 - Clone repository
 - Install [Docker][docker-link]
 
-For dependency install and update
-- Install [Composer][composer-link]
-- Install [Node][node-link] or [Yarn][yarn-link]
-
-## Load dependencies
-
 Go to root directory
 
 ```bash
 cd php-javascript
 ```
+
+## Start containers
+```bash
+docker-compose up -d
+```
+
+## Load dependencies
+
 Install backend dependencies with composer
 ```bash
-composer --working-dir=.\back\yii2 install
+docker-compose exec symfony composer --working-dir=../ install
 composer --working-dir=.\back\symfony install
 composer --working-dir=.\back\laravel install
 ```
@@ -33,10 +35,7 @@ Install frontend dependencies with npm or yarn
 npm --prefix ./front/vuejs install ./front/vuejs
 ```
 
-## Start containers
-```bash
-docker-compose up -d
-```
+
 ## Wait for mysql first startup
 Watch ".cache/mysql" folder until laravel, yii, symfony databases are created.
 A folder for each data base should show up. This can take several minutes the first time.
@@ -64,6 +63,12 @@ docker-compose exec symfony php artisan migrate
 - reactjsjs: http://localhost:8084
 - angularjs: http://localhost:8085
 - adminer: http://localhost:3307
+
+*If you can't reach localhost and using toolbox try:*
+```
+docker-machine ls
+```
+*it will return the ip address of your virtual machine*
 
 ---
 ## Log into containers
